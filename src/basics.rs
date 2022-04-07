@@ -1,22 +1,9 @@
-# Learning Rust
-
-## Source :
-Hello,
-
-I've found a course that I think you will enjoy.
-
-Author iconUdemy Business
-The Rust Programming Language
-Learn a modern, powerful yet safe systems programming language!
-
-★★★★☆ 4.30 (3180 ratings)
-
-* ## Variables
-
-```rust
 use std::mem;
 use std::mem::size_of_val;
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn variables() {
     /** Variables **/
     // Variable Declaration
@@ -52,11 +39,10 @@ pub fn variables() {
     let g: bool = false; // false, true
     println!("g = {}, takes up {} bytes", e, size_of_val(&g));
 }
-```
 
-* ## Operators
-
-```rust
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn operators() {
     // arithmetic
     let mut a = 2 + 3 * 4;
@@ -86,11 +72,10 @@ pub fn operators() {
     // logical operator
     println!("Pi Less Than For = {}", std::f64::consts::PI < 4.0);
 }
-```
 
-* ## Scope and Shadowing
-
-```rust
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn scope_and_shadowing() {
     let mut a = 123;
     println!("outer a = {}", a);
@@ -104,10 +89,11 @@ pub fn scope_and_shadowing() {
     a = 33;
     println!("outer a = {}", a);
 }
-```
-* ## Heap and Stack
 
-```rust
+
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 struct Point {
     x: f64,
     y: f64
@@ -120,6 +106,10 @@ fn origin() -> Point {
     }
 }
 
+
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 /**
 Heap    -> Heap Dynamic, Allocation and De-allocation
 Stack   -> Fast but size is limited. LIFO
@@ -132,29 +122,30 @@ pub fn head_and_stack() {
     println!("P2 pointer takes up {} bytes on the heap", mem::size_of_val(&p2));
     println!("P2  takes up {} bytes on the heap", mem::size_of_val(&(*p2)));
 }
-```
 
-* ## Decision-Making 
 
-```rust
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn if_statement() {
-  let temp = 25;
+    let temp = 25;
 
-  if temp>30 {
-  println!("Temperature is hot");
-  } else if temp < 10 {
-  println!("Temperature is cold!");
-  } else {
-  println!("Temperature is nice!")
-  }
+    if temp>30 {
+        println!("Temperature is hot");
+    } else if temp < 10 {
+        println!("Temperature is cold!");
+    } else {
+        println!("Temperature is nice!")
+    }
 
-  let day = if temp > 20 {"Sunny"} else {"Cloudy"};
-  println!("Day is {}", day);
-  }
-```
-* ## Loops
-* 
-```rust
+    let day = if temp > 20 {"Sunny"} else {"Cloudy"};
+    println!("Day is {}", day);
+}
+
+
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn loops() {
     let mut x = 1;
     while x < 1000 {
@@ -181,11 +172,10 @@ pub fn loops() {
         println!("Index = {pos}, y = {y}")
     }
 }
-```
 
-* ## Match Statement
-
-```rust
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn match_statement() {
     let country_code = 1001;
 
@@ -199,22 +189,15 @@ pub fn match_statement() {
 
     println!("Country Code = {}, Country = {}", country_code, country);
 }
-```
-
-* ## Structures
-
-```rust
-
-struct Point {
-    x: f64,
-    y: f64
-}
 
 struct Line {
     start: Point,
     end: Point
 }
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn structures() {
     let p = Point{x: 3.0, y: 4.0};
     println!("Point p is at ({}, {})", p.x, p.y);
@@ -231,12 +214,10 @@ pub fn structures() {
              my_line.end.y
     );
 }
-```
 
-* ## Enums
-
-```rust
-
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 enum Color {
     Red,
     Green,
@@ -244,6 +225,9 @@ enum Color {
     RgbColor(u8, u8, u8) // tuple
 }
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn enums() {
     let c: Color = Color::RgbColor(3, 4, 5);
     match c {
@@ -254,16 +238,18 @@ pub fn enums() {
         Color::RgbColor(r,g,b) => println!("rgb({}, {}, {})", r, g, b)
     }
 }
-```
-* ## Unions
 
-```rust
-
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub union IntOrFloat {
     i: i32,
     f: f32
 }
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn unions() {
     let iof = IntOrFloat{ i: 42};
     unsafe {
@@ -277,11 +263,10 @@ pub fn unions() {
         }
     }
 }
-```
 
-* ## Options
-
-```rust
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn options() {
     // Option -> Some(v) | None
     fn process_result(x: f64, y: f64){
@@ -298,5 +283,31 @@ pub fn options() {
     process_result(3.0, 0.0);
     process_result(3.0, 1.0);
 }
-```
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
+pub fn arrays() {
+    let mut a:[i32;5] = [1, 2,3, 4, 5];
+    println!("a has {} elements, first element is {}", a.len(), a[0]);
+    a[0] = 321;
+    println!("a has {} elements, first element is {}", a.len(), a[0]);
+    // :? debug printing
+    println!("a = {:?}", a);
+
+    if a != [1,2,3,4,5] {
+        println!("Array doesnt match!");
+    }
+
+    // create an array with length 10 and set all values to 1
+    let b = [1; 10];
+    println!("b has {} elements and b = {:?}", b[0], b);
+
+    for i in 0..a.len() {
+        println!("Pos_{} = {}", i, a[i])
+    }
+
+    // create an array with length 10 and type u16 and set all values to 1
+    let c = [1u16; 10];
+    println!("c has {} elements and c = {:?}", c[0], c);
+}
