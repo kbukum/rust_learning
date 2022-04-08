@@ -1,4 +1,6 @@
-mod basics;
+mod types_and_variables;
+mod control_flow;
+mod data_structures;
 
 /** Global Variables **/
 
@@ -10,39 +12,39 @@ static  APPLICATION_NAME: &str = "Learning Rust is Fun";
 fn main() {
     println!("{}", APPLICATION_NAME);
     println!("###### Variables #######");
-    basics::variables();
+    types_and_variables::variables();
     println!("------------------\n");
     println!("###### Operators #######");
-    basics::operators();
+    types_and_variables::operators();
     println!("------------------\n");
     println!("###### Scope and Shadowing #######");
-    basics::scope_and_shadowing();
+    types_and_variables::scope_and_shadowing();
     println!("------------------\n");
     println!("###### Heap and Stack #######");
-    basics::head_and_stack();
+    types_and_variables::head_and_stack();
     println!("------------------\n");
     println!("###### If Statement #######");
-    basics::if_statement();
+    control_flow::if_statement();
     println!("------------------\n");
     println!("###### Loops #######");
-    basics::loops();
+    control_flow::loops();
     println!("------------------\n");
     println!("###### Match Statement #######");
-    basics::match_statement();
+    control_flow::match_statement();
     println!("------------------\n");
     println!("###### Structures #######");
-    basics::structures();
+    data_structures::structures();
     println!("------------------\n");
     println!("###### Enums #######");
-    basics::enums();
+    data_structures::enums();
     println!("------------------\n");
     println!("###### Unions #######");
-    basics::unions();
+    data_structures::unions();
     println!("------------------\n");
     println!("###### Option<V> #######");
-    basics::options();
+    data_structures::options();
     println!("------------------\n");
     println!("###### Arrays #######");
-    basics::arrays();
+    data_structures::arrays();
     println!("------------------\n");
 }

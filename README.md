@@ -11,7 +11,8 @@ Learn a modern, powerful yet safe systems programming language!
 
 ★★★★☆ 4.30 (3180 ratings)
 
-* ## Variables
+### Types and Variables
+* #### Variables
 
 ```rust
 use std::mem;
@@ -54,7 +55,7 @@ pub fn variables() {
 }
 ```
 
-* ## Operators
+* #### Operators
 
 ```rust
 pub fn operators() {
@@ -88,7 +89,7 @@ pub fn operators() {
 }
 ```
 
-* ## Scope and Shadowing
+* #### Scope and Shadowing
 
 ```rust
 pub fn scope_and_shadowing() {
@@ -105,7 +106,7 @@ pub fn scope_and_shadowing() {
     println!("outer a = {}", a);
 }
 ```
-* ## Heap and Stack
+* #### Heap and Stack
 
 ```rust
 struct Point {
@@ -134,7 +135,10 @@ pub fn head_and_stack() {
 }
 ```
 
-* ## Decision-Making 
+
+### Control Flow
+
+* #### Decision-Making 
 
 ```rust
 pub fn if_statement() {
@@ -152,8 +156,8 @@ pub fn if_statement() {
   println!("Day is {}", day);
   }
 ```
-* ## Loops
-* 
+* #### Loops
+
 ```rust
 pub fn loops() {
     let mut x = 1;
@@ -183,7 +187,7 @@ pub fn loops() {
 }
 ```
 
-* ## Match Statement
+* #### Match Statement
 
 ```rust
 pub fn match_statement() {
@@ -201,7 +205,10 @@ pub fn match_statement() {
 }
 ```
 
-* ## Structures
+
+#### Data Structures
+
+* #### Structures
 
 ```rust
 
@@ -233,7 +240,7 @@ pub fn structures() {
 }
 ```
 
-* ## Enums
+* #### Enums
 
 ```rust
 
@@ -255,7 +262,7 @@ pub fn enums() {
     }
 }
 ```
-* ## Unions
+* #### Unions
 
 ```rust
 
@@ -279,7 +286,7 @@ pub fn unions() {
 }
 ```
 
-* ## Options
+* #### Options
 
 ```rust
 pub fn options() {
