@@ -1,3 +1,4 @@
+use std::mem;
 
 struct Point {
     x: f64,
@@ -115,7 +116,7 @@ pub fn arrays() {
 
     // create an array with length 10 and set all values to 1
     let b = [1; 10];
-    println!("b has {} elements and b = {:?}", b[0], b);
+    println!("b has {} elements and takes up {} bytes", b[0], mem::size_of_val(&b));
 
     for i in 0..a.len() {
         println!("Pos_{} = {}", i, a[i])
@@ -123,9 +124,37 @@ pub fn arrays() {
 
     // create an array with length 10 and type u16 and set all values to 1
     let c = [1u16; 10];
-    println!("c has {} elements and c = {:?}", c[0], c);
+    println!("c has {} elements and takes up {} bytes", c[0], mem::size_of_val(&c));
+
+    // multi dimensional arrays
+    let mtx:[[f32; 3];2] = [
+        [1.0, 2.0, 3.0],
+        [1.5, 2.5, 3.5]
+    ];
+    println!("mtx has {} elements and takes up {} bytes", mtx[0][0], mem::size_of_val(&mtx));
+
+    for i in 0..mtx.len() {
+        for j in 0..mtx.len() {
+            if i == j  {
+                println!("mtx[{i}][{j}] = {}", mtx[i][j])
+            }
+        }
+    }
+}
+
+fn use_slice(slice: &mut [i32]) {
+    println!("Sliced array = {:?}, first element is {}" ,&slice, slice[0]);
+    slice[0] = 5;
+    println!("Sliced array = {:?}, first element replaced to {}" ,&slice, slice[0]);
 }
 
 pub fn slices() {
+    let mut data = [1,2 ,3 ,4, 5];
+    println!("Before Change Original Array = {:?}" ,&data);
+    use_slice(&mut data[1..4]);
+    println!("After Replacement on Slice the Original array = {:?}" ,&data);
+}
+
+pub fn tuples() {
 
 }

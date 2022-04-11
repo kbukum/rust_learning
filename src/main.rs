@@ -47,4 +47,7 @@ fn main() {
     println!("###### Arrays #######");
     data_structures::arrays();
     println!("------------------\n");
+    println!("###### Slices #######");
+    data_structures::slices();
+    println!("------------------\n");
 }
