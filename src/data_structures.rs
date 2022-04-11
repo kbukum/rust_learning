@@ -155,6 +155,102 @@ pub fn slices() {
     println!("After Replacement on Slice the Original array = {:?}" ,&data);
 }
 
-pub fn tuples() {
+fn sum_and_product(x: i32, y: i32) -> (i32, i32){
+    // tuple construction
+    return (x + y, x * y)
+}
 
+pub fn tuples() {
+    let x1 = 3;
+    let y1 = 4;
+    // tuple structuring
+    let sp1 = sum_and_product(x1, y1);
+
+    println!("sp1({}, {}) = {:?}", x1, y1, sp1);
+    println!("{0}+{1} = {2}, {0}*{1} = {3}", x1, y1, sp1.0, sp1.1);
+
+    // destructuring
+    let (a1, b1) = sp1;
+    println!("{x1}+{y1} = {}, {x1}*{y1} = {}", a1, b1);
+
+    // tuple of tuples
+    let x2 = 4;
+    let y2 = 7;
+    let sp2 = sum_and_product(x2, y2);
+    let combined_sp = (sp1, sp2);
+    println!("(sp1({}, {}), sp2({}, {})) = {:?}", x1, y1, x2, y2, combined_sp);
+
+    let ((a1,b1), (a2, b2)) = combined_sp;
+
+    println!("{x1}+{y1}={a1}, {x1}*{y1}={b1}, {x2}+{y2}={a2}, {x2}*{y2}={b2}");
+
+    // tuple of different elements
+    let tuple_of_different_elements = (true, 42.0, -1i8);
+    println!("tuple_of_different_elements ={:?}", tuple_of_different_elements);
+
+    // tuple of single elements
+    let tuple_of_single_element = (42, );
+    println!("tuple_of_single_element = {:?}", tuple_of_single_element);
+}
+
+fn how_many(x: i32) -> &'static str {
+    match x {
+        0 => "no",
+        1 => "one",
+        2 => "couple",
+        12 => "dozen",
+        3 | 4 => "few",
+        z @ 5..=8 => if z % 2 == 0 {"some"} else {"few"},
+        _ if (x < 11) => "much",
+        _ => "lots of"
+    }
+}
+
+fn location(p: (i32, i32)) -> String {
+    let loc =  match p {
+        (0, 0) => format!("origin"),
+        (0,y) => format!("x axis, y = {}", y),
+        (x,0) => format!("y axis, x = {}", x),
+        (x,y) => format!("({}, {})", x, y)
+    };
+    return loc;
+}
+
+fn print_location(p: (i32, i32)) {
+    println!("Point is at the {}", location(p));
+}
+
+pub fn pattern_matching() {
+    for x in 0..13 {
+        println!("{}: I have {} orange{}",x, how_many(x) , if x > 1 {"s"} else {""})
+    }
+
+    print_location((0, 0));
+    print_location((0, 4));
+    print_location((4, 0));
+    print_location((4, 4));
+}
+
+#[derive(Debug)]
+struct DataPoint<T> {
+    x: T,
+    y: T
+}
+
+#[derive(Debug)]
+struct DataLine<T> {
+    start: DataPoint<T>,
+    end: DataPoint<T>
+}
+
+pub fn generic_types() {
+    let p: DataPoint<i32> = DataPoint{x: 0, y: 1};
+    let p1: DataPoint<f64> = DataPoint{x: 0.0, y: 1.0};
+
+    println!("p = {:?}", &p);
+    println!("p1 = {:?}", &p1);
+
+    let p2: DataPoint<f64> = DataPoint{x: 0.0, y: 1.0};
+    let l = DataLine{ start:p1, end: p2};
+    println!("l = {:?}", &l);
 }

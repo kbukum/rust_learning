@@ -50,4 +50,13 @@ fn main() {
     println!("###### Slices #######");
     data_structures::slices();
     println!("------------------\n");
+    println!("###### Tuples #######");
+    data_structures::tuples();
+    println!("------------------\n");
+    println!("###### Pattern Matching #######");
+    data_structures::pattern_matching();
+    println!("------------------\n");
+    println!("###### Generic Types #######");
+    data_structures::generic_types();
+    println!("------------------\n");
 }
