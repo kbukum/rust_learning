@@ -1,6 +1,7 @@
 mod types_and_variables;
 mod control_flow;
 mod data_structures;
+mod collections;
 
 /** Global Variables **/
 
@@ -11,6 +12,9 @@ static  APPLICATION_NAME: &str = "Learning Rust is Fun";
 #[allow(unused)]
 fn main() {
     println!("{}", APPLICATION_NAME);
+
+    println!("\n###### Types and Variables #######\n");
+
     println!("###### Variables #######");
     types_and_variables::variables();
     println!("------------------\n");
@@ -23,6 +27,9 @@ fn main() {
     println!("###### Heap and Stack #######");
     types_and_variables::head_and_stack();
     println!("------------------\n");
+
+    println!("\n###### Control Flow #######\n");
+
     println!("###### If Statement #######");
     control_flow::if_statement();
     println!("------------------\n");
@@ -32,6 +39,11 @@ fn main() {
     println!("###### Match Statement #######");
     control_flow::match_statement();
     println!("------------------\n");
+
+
+
+    println!("\n###### Data Structures #######\n");
+
     println!("###### Structures #######");
     data_structures::structures();
     println!("------------------\n");
@@ -59,4 +71,12 @@ fn main() {
     println!("###### Generic Types #######");
     data_structures::generic_types();
     println!("------------------\n");
+
+
+    println!("\n###### Collections #######\n");
+
+    println!("###### Vectors #######");
+    collections::vectors();
+    println!("------------------\n");
+
 }
