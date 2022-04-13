@@ -84,5 +84,8 @@ fn main() {
     println!("###### HashSet #######");
     collections::hashset();
     println!("------------------\n");
+    println!("###### Iterators #######");
+    collections::iterators();
+    println!("------------------\n");
 
 }

@@ -127,3 +127,37 @@ pub fn hashset() {
     println!("items in {:?} or {:?} are {:?}?", _1_5, _6_10, _1_5.union(&_6_10));
     println!("items in either {:?} and {:?} are {:?}?", _1_5, _6_10, _1_5.intersection(&_6_10));
 }
+
+pub fn iterators() {
+    let vec = vec![3, 2, 1];
+    println!("vec = {:?}", vec);
+    for x in vec.iter() {
+        println!("We got {}", x);
+    }
+
+    // changing values by using iter
+    let mut vec2 = vec![3, 2, 1];
+    println!("vec2 = {:?}", vec2);
+    for x in vec2.iter_mut() {
+        println!("We got {}", x);
+        *x = *x + 1;
+    }
+    println!("vec2 = {:?}", vec2);
+
+    // reversing
+    println!("Printing vec2 in reverse");
+    for x in vec2.iter().rev() {
+        println!("We got {}", x);
+    }
+
+    // extend
+    let mut vec3 = vec![1, 2, 3];
+    println!("vec3 = {:?}", vec3);
+    vec3.extend(vec2);
+    println!("vec3 after extending vec2 = {:?}", vec3);
+}
+
+
+
+
+
