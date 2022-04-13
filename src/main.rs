@@ -78,5 +78,11 @@ fn main() {
     println!("###### Vectors #######");
     collections::vectors();
     println!("------------------\n");
+    println!("###### HashMap #######");
+    collections::hashmap();
+    println!("------------------\n");
+    println!("###### HashSet #######");
+    collections::hashset();
+    println!("------------------\n");
 
 }
