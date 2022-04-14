@@ -2,6 +2,9 @@ mod types_and_variables;
 mod control_flow;
 mod data_structures;
 mod collections;
+mod characters_and_strings;
+mod apps;
+mod functions;
 
 /** Global Variables **/
 
@@ -88,4 +91,24 @@ fn main() {
     collections::iterators();
     println!("------------------\n");
 
+    println!("\n###### Characters and Strings #######\n");
+    println!("###### Strings #######");
+    characters_and_strings::strings();
+    println!("------------------\n");
+    println!("###### String format #######");
+    characters_and_strings::string_formats();
+    println!("------------------\n");
+
+
+    println!("\n###### Functions #######\n");
+    println!("###### Functions and Function Arguments #######");
+    functions::functions_and_arguments();
+    println!("------------------\n");
+
+
+
+    println!("\n###### Applications #######\n");
+    println!("###### Guessing a number #######");
+    // apps::number_guessing();
+    println!("------------------\n");
 }
