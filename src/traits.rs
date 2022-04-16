@@ -138,7 +138,9 @@ impl PersonInto {
     fn new<S: Into<String>>(name: S) -> PersonInto {
         PersonInto { name: name.into()}
     }
-
+    #[allow(dead_code)]
+    #[allow(unused_variables)]
+    #[allow(unused)]
     fn new2<S>(name: S) -> PersonInto where S:Into<String> {
         PersonInto { name: name.into()}
     }
@@ -209,8 +211,8 @@ where T: Add<Output = T>
 }
 
 pub fn overloading() {
-    let mut a = Complex::new(1, 2);
-    let mut b = Complex::new(3, 4);
+    let a = Complex::new(1, 2);
+    let b = Complex::new(3, 4);
 
     println!("a = {:?}", a);
     println!("b = {:?}", b);

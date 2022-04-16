@@ -66,11 +66,11 @@ pub fn closures() {
     let a = 6.0;
     println!("Square of {} is {}", a, square(a));
 
-    let mut b = 2;
+    let b = 2;
     { // Scope for borrowing
         let pow_of_b = | x | {
             let mut x_pow = x;
-            for i in 2..b {
+            for _ in 2..b {
                 x_pow = x_pow * x;
             }
             x_pow
@@ -92,8 +92,11 @@ pub fn closures() {
     println!("f = {}", f);
 
     // Pass by value
-    let plus_four = |mut x: i32| x += 4;
-    let mut f2 = 12;
+    let plus_four = |mut x: i32| {
+        x += 4;
+        println!("Local value of x = {}", x)
+    };
+    let f2 = 12;
     plus_four(f2);
     println!("f = {}", f2);
 }

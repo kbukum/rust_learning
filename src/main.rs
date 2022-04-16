@@ -11,129 +11,76 @@ mod traits;
 
 static  APPLICATION_NAME: &str = "Learning Rust is Fun";
 
+pub fn print_header(header: &str, fn_list: Vec<(&str, fn())>) {
+    println!("### {}", header);
+    for (sub_header, run) in fn_list {
+        println!("#### {}", sub_header);
+        run();
+        println!("------------------\n");
+    }
+}
+
+
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[allow(unused)]
 fn main() {
+
     println!("{}", APPLICATION_NAME);
 
-    println!("\n###### Types and Variables #######\n");
+    print_header("Types and Variables", vec![
+        ("Variables", types_and_variables::variables),
+        ("Operators", types_and_variables::operators),
+        ("Scope and Shadowing", types_and_variables::scope_and_shadowing),
+        ("Heap and Stack", types_and_variables::head_and_stack)
+    ]);
 
-    println!("###### Variables #######");
-    types_and_variables::variables();
-    println!("------------------\n");
-    println!("###### Operators #######");
-    types_and_variables::operators();
-    println!("------------------\n");
-    println!("###### Scope and Shadowing #######");
-    types_and_variables::scope_and_shadowing();
-    println!("------------------\n");
-    println!("###### Heap and Stack #######");
-    types_and_variables::head_and_stack();
-    println!("------------------\n");
+    print_header("Control Flow", vec![
+        ("If Statement", control_flow::if_statement),
+        ("Loops", control_flow::loops),
+        ("Match Statement", control_flow::match_statement)
+    ]);
 
-    println!("\n###### Control Flow #######\n");
+    print_header("Data Structures", vec![
+        ("Structures", data_structures::structures),
+        ("Enums", data_structures::enums),
+        ("Unions", data_structures::unions),
+        ("Option<V>", data_structures::options),
+        ("Arrays", data_structures::arrays),
+        ("Slices", data_structures::slices),
+        ("Tuples", data_structures::tuples),
+        ("Pattern Matching", data_structures::pattern_matching),
+        ("Generic Types", data_structures::generic_types),
+    ]);
 
-    println!("###### If Statement #######");
-    control_flow::if_statement();
-    println!("------------------\n");
-    println!("###### Loops #######");
-    control_flow::loops();
-    println!("------------------\n");
-    println!("###### Match Statement #######");
-    control_flow::match_statement();
-    println!("------------------\n");
+    print_header("Collections", vec![
+        ("Vectors", collections::vectors),
+        ("HashMap", collections::hashmap),
+        ("HashSet", collections::hashset),
+        ("Iterators", collections::iterators)
+    ]);
 
+    print_header("Characters and Strings", vec![
+        ("Strings", characters_and_strings::strings),
+        ("String format", characters_and_strings::string_formats)
+    ]);
 
+    print_header("Functions", vec![
+        ("Functions and Function Arguments", functions::functions_and_arguments),
+        ("Methods", functions::methods),
+        ("Closures", functions::closures),
+        ("High Order Functions", functions::high_order_functions),
+    ]);
 
-    println!("\n###### Data Structures #######\n");
+    print_header("Traits", vec![
+        ("Traits", traits::traits),
+        ("Trait Parameters", traits::trait_parameters),
+        ("Into Trait", traits::into_trait),
+        ("Drop Trait", traits::drop_trait),
+        ("Over Loading", traits::overloading),
+    ]);
 
-    println!("###### Structures #######");
-    data_structures::structures();
-    println!("------------------\n");
-    println!("###### Enums #######");
-    data_structures::enums();
-    println!("------------------\n");
-    println!("###### Unions #######");
-    data_structures::unions();
-    println!("------------------\n");
-    println!("###### Option<V> #######");
-    data_structures::options();
-    println!("------------------\n");
-    println!("###### Arrays #######");
-    data_structures::arrays();
-    println!("------------------\n");
-    println!("###### Slices #######");
-    data_structures::slices();
-    println!("------------------\n");
-    println!("###### Tuples #######");
-    data_structures::tuples();
-    println!("------------------\n");
-    println!("###### Pattern Matching #######");
-    data_structures::pattern_matching();
-    println!("------------------\n");
-    println!("###### Generic Types #######");
-    data_structures::generic_types();
-    println!("------------------\n");
-
-
-    println!("\n###### Collections #######\n");
-
-    println!("###### Vectors #######");
-    collections::vectors();
-    println!("------------------\n");
-    println!("###### HashMap #######");
-    collections::hashmap();
-    println!("------------------\n");
-    println!("###### HashSet #######");
-    collections::hashset();
-    println!("------------------\n");
-    println!("###### Iterators #######");
-    collections::iterators();
-    println!("------------------\n");
-
-    println!("\n###### Characters and Strings #######\n");
-    println!("###### Strings #######");
-    characters_and_strings::strings();
-    println!("------------------\n");
-    println!("###### String format #######");
-    characters_and_strings::string_formats();
-    println!("------------------\n");
-
-
-    println!("\n###### Functions #######\n");
-    println!("###### Functions and Function Arguments #######");
-    functions::functions_and_arguments();
-    println!("------------------\n");
-    println!("###### Methods #######");
-    functions::methods();
-    println!("------------------\n");
-    println!("###### Closures #######");
-    functions::closures();
-    println!("------------------\n");
-    println!("###### High Order Functions #######");
-    functions::high_order_functions();
-    println!("------------------\n");
-
-    println!("\n###### Traits #######\n");
-    println!("###### Traits #######");
-    traits::traits();
-    println!("------------------\n");
-    println!("###### Trait Parameters #######");
-    traits::trait_parameters();
-    println!("------------------\n");
-    println!("###### Into Trait #######");
-    traits::into_trait();
-    println!("------------------\n");
-    println!("###### Drop Trait #######");
-    traits::drop_trait();
-    println!("------------------\n");
-    println!("###### Over Loading #######");
-    traits::overloading();
-    println!("------------------\n");
-
-    println!("\n###### Applications #######\n");
-    println!("###### Guessing a number #######");
-    // apps::number_guessing();
-    println!("------------------\n");
+    print_header("Applications", vec![
+        //("Guessing a number", apps::number_guessing)
+    ]);
 }

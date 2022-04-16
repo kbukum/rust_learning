@@ -1,6 +1,9 @@
 use rand::Rng;
 use std::io::stdin;
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn number_guessing() {
     let number = rand::thread_rng().gen_range(1..101);
     loop {

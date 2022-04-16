@@ -232,12 +232,18 @@ pub fn pattern_matching() {
 }
 
 #[derive(Debug)]
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 struct DataPoint<T> {
     x: T,
     y: T
 }
 
 #[derive(Debug)]
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 struct DataLine<T> {
     start: DataPoint<T>,
     end: DataPoint<T>
