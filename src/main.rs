@@ -5,6 +5,7 @@ mod collections;
 mod characters_and_strings;
 mod apps;
 mod functions;
+mod traits;
 
 /** Global Variables **/
 
@@ -104,8 +105,32 @@ fn main() {
     println!("###### Functions and Function Arguments #######");
     functions::functions_and_arguments();
     println!("------------------\n");
+    println!("###### Methods #######");
+    functions::methods();
+    println!("------------------\n");
+    println!("###### Closures #######");
+    functions::closures();
+    println!("------------------\n");
+    println!("###### High Order Functions #######");
+    functions::high_order_functions();
+    println!("------------------\n");
 
-
+    println!("\n###### Traits #######\n");
+    println!("###### Traits #######");
+    traits::traits();
+    println!("------------------\n");
+    println!("###### Trait Parameters #######");
+    traits::trait_parameters();
+    println!("------------------\n");
+    println!("###### Into Trait #######");
+    traits::into_trait();
+    println!("------------------\n");
+    println!("###### Drop Trait #######");
+    traits::drop_trait();
+    println!("------------------\n");
+    println!("###### Over Loading #######");
+    traits::overloading();
+    println!("------------------\n");
 
     println!("\n###### Applications #######\n");
     println!("###### Guessing a number #######");
