@@ -1,6 +1,6 @@
 use std::f64::consts::PI;
 use std::fmt::Debug;
-use std::ops::Add;
+use std::ops::{Add, AddAssign, Neg};
 
 trait Animal {
     fn create(name: &'static str) -> Self;
@@ -188,7 +188,7 @@ pub fn drop_trait() {
     drop(creature);
 }
 
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 struct Complex<T> {
     re: T,
     im: T
@@ -210,11 +210,50 @@ where T: Add<Output = T>
     }
 }
 
+impl <T> AddAssign for Complex<T>
+where T: AddAssign<T> {
+    fn add_assign(&mut self, rhs: Self) {
+        self.re += rhs.re;
+        self.im += rhs.im;
+    }
+}
+
+impl <T> Neg for Complex<T>
+where T: Neg<Output = T> {
+    type Output = Complex<T>;
+
+    fn neg(self) -> Self::Output {
+       Complex {
+           re: -self.re,
+           im: -self.im
+       }
+    }
+}
+
+impl <T> PartialEq for Complex<T>
+where T: PartialEq<T> {
+    fn eq(&self, other: &Self) -> bool {
+        return self.re == other.re && self.im == other.im
+    }
+}
+
+// partial equality
+// full equality -> x = x
+// NAN = not a number 0/0 inf/inf
+// NAN == NAN => full equality is impossible.
+
 pub fn overloading() {
-    let a = Complex::new(1, 2);
-    let b = Complex::new(3, 4);
+    let mut a = Complex::new(1, 2);
+    let mut b = Complex::new(3, 4);
 
     println!("a = {:?}", a);
     println!("b = {:?}", b);
     println!("a + b = {:?}", a + b);
+    a += b;
+    println!("a += b, a = {:?}", a);
+    println!("-a = {:?}", -a);
+    println!("(a == a ) = {}", (a == a));
+    let c = Complex::new(4, 6);
+    println!("(a == c ) = {}", (a == c));
+    println!("(a == b ) = {}", (a == b));
 }
