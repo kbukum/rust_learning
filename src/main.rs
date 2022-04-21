@@ -78,7 +78,8 @@ fn main() {
         ("Into Trait", traits::into_trait),
         ("Drop Trait", traits::drop_trait),
         ("Over Loading", traits::overloading),
-        ("Static & Dynamic Dispatch", traits::static_dynamic_dispatch)
+        ("Static & Dynamic Dispatch", traits::static_dynamic_dispatch),
+        ("Vector of different types", traits::vector_of_different_types)
     ]);
 
     print_header("Applications", vec![

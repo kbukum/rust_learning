@@ -3,7 +3,6 @@ use std::fmt::Debug;
 use std::ops::{Add, AddAssign, Neg};
 
 trait Animal {
-    fn create(name: &'static str) -> Self;
     fn name(&self) -> &'static str;
     fn talk(&self) { // default implementation
         println!("{} cannot talk", self.name());
@@ -19,9 +18,6 @@ struct Cat {
 }
 
 impl Animal for Human {
-    fn create(name: &'static str) -> Self {
-        return Human{name};
-    }
     fn name(&self) -> &'static str {
         self.name
     }
@@ -31,9 +27,6 @@ impl Animal for Human {
 }
 
 impl Animal for Cat {
-    fn create(name: &'static str) -> Self {
-        return Cat{name};
-    }
     fn name(&self) -> &'static str {
         self.name
     }
@@ -58,9 +51,9 @@ impl Summable<i32> for Vec<i32> {
 }
 
 pub fn traits() {
-    let h: Human = Animal::create("John");
+    let h: Human = Human{name: "John"};
     h.talk();
-    let c: Cat = Animal::create("Misty");
+    let c: Cat = Cat{name: "Misty"};
     c.talk();
 
     let a = vec![1, 2, 3];
@@ -299,4 +292,37 @@ pub fn static_dynamic_dispatch() {
     }
 }
 
+
+
+enum CreatureEn {
+    Human(Human),
+    Cat(Cat)
+}
+
+pub fn vector_of_different_types() {
+    // static
+    let mut creatures: Vec<CreatureEn> = Vec::new();
+    creatures.push(CreatureEn::Human(
+        Human{name: "John"}
+    ));
+    creatures.push(CreatureEn::Cat(
+        Cat{name: "Fluffy"}
+    ));
+
+    for c in creatures {
+        match c {
+            CreatureEn::Human(h) => h.talk(),
+            CreatureEn::Cat(c) => c.talk()
+        }
+    }
+
+    // dynamic
+    let mut animals: Vec<Box<dyn Animal>> = Vec::new();
+    animals.push(Box::new(Human{name: "John"}));
+    animals.push( Box::new(Cat{name: "Fluffy"}));
+
+    for c in animals.iter() {
+       c.talk();
+    }
+}
 
