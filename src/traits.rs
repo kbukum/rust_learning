@@ -257,3 +257,46 @@ pub fn overloading() {
     println!("(a == c ) = {}", (a == c));
     println!("(a == b ) = {}", (a == b));
 }
+
+trait Printable {
+    fn format(&self) -> String;
+}
+
+impl Printable for i32 {
+    fn format(&self) -> String {
+        format!("i32: {}", self)
+    }
+}
+
+impl Printable for String {
+    fn format(&self) -> String {
+        format!("String: {}", self)
+    }
+}
+
+fn print_static<T>(printable: T) where T: Printable {
+    println!("Static Dispatch -> {}", printable.format());
+}
+
+fn print_dynamic(printable: &dyn Printable) {
+    println!("Dynamic Dispatch -> {}", printable.format());
+}
+
+pub fn static_dynamic_dispatch() {
+    let a = 123;
+    let b = "hello".to_string();
+
+    {
+        print_static(a);
+        print_static(b);
+    }
+
+    let c = 123;
+    let d = "hello".to_string();
+    {
+        print_dynamic(&c);
+        print_dynamic(&d);
+    }
+}
+
+
