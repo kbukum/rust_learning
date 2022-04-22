@@ -59,6 +59,17 @@ Learning Rust is Fun
   * Into Trait
   * Drop Trait
   * Over Loading
+  * Static & Dynamic Dispatch
+  * Vector of different types
+
+* Lifetime and Memory
+  * Ownership
+  * Borrowing
+  * Lifetime
+  * Lifetime in Structure implementation
+  * Referenced counted variables
+  * Atomic Referenced counted variables
+  * Mutex Referenced counted variables
 
 * Applications
   * Guessing a number
