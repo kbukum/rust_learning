@@ -93,8 +93,9 @@ fn main() {
         ("Mutex Referenced counted variables", lifetime_and_memory::using_mutex_for_thread_safety)
     ]);
 
-
     print_header("Applications", vec![
-        //("Guessing a number", apps::number_guessing)
+        //("Guessing a number", apps::number_guessing),
+        ("Circular References", apps::circular_references),
+        ("Spawning and Joining Threads", apps::spawning_and_joining_threads)
     ]);
 }
