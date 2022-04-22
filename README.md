@@ -5,8 +5,8 @@ Hello,
 
 I've found a course that I think you will enjoy.
 
-Author iconUdemy Business
-The Rust Programming Language
+Udemy Course
+[The Rust Programming Language](https://mindex.udemy.com/course/rust-lang)
 Learn a modern, powerful yet safe systems programming language!
 
 ★★★★☆ 4.30 (3180 ratings)
