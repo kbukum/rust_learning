@@ -11,6 +11,7 @@ mod lifetime_and_memory;
 
 /** Global Variables **/
 
+/// This global variable refers to the title for the application.
 static  APPLICATION_NAME: &str = "Learning Rust is Fun";
 
 pub fn print_header(header: &str, fn_list: Vec<(&str, fn())>) {

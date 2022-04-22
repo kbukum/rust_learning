@@ -73,3 +73,10 @@ Learning Rust is Fun
 
 * Applications
   * Guessing a number
+  * Modules
+  * Spawning and Joining Threads", apps::spawning_and_joining_threads
+
+* Unit Testing
+  * Check [src/main.rs](src/main.rs), [modules/src/greetings/english.rs](modules/src/greetings/english.rs)
+* Documentation
+  * After running `rustdoc modules/src/greetings/english.rs`, check doc folder ([doc/english/index.html](doc/english/index.html))
