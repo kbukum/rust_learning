@@ -234,7 +234,9 @@ where T: PartialEq<T> {
 // full equality -> x = x
 // NAN = not a number 0/0 inf/inf
 // NAN == NAN => full equality is impossible.
-
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn overloading() {
     let mut a = Complex::new(1, 2);
     let mut b = Complex::new(3, 4);
@@ -267,14 +269,23 @@ impl Printable for String {
     }
 }
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 fn print_static<T>(printable: T) where T: Printable {
     println!("Static Dispatch -> {}", printable.format());
 }
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 fn print_dynamic(printable: &dyn Printable) {
     println!("Dynamic Dispatch -> {}", printable.format());
 }
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn static_dynamic_dispatch() {
     let a = 123;
     let b = "hello".to_string();
@@ -299,6 +310,9 @@ enum CreatureEn {
     Cat(Cat)
 }
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn vector_of_different_types() {
     // static
     let mut creatures: Vec<CreatureEn> = Vec::new();

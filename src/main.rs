@@ -6,6 +6,7 @@ mod characters_and_strings;
 mod apps;
 mod functions;
 mod traits;
+mod lifetime_and_memory;
 
 /** Global Variables **/
 
@@ -81,6 +82,17 @@ fn main() {
         ("Static & Dynamic Dispatch", traits::static_dynamic_dispatch),
         ("Vector of different types", traits::vector_of_different_types)
     ]);
+
+    print_header("Lifetime and Memory", vec![
+        ("Ownership", lifetime_and_memory::ownership),
+        ("Borrowing", lifetime_and_memory::borrowing),
+        ("Lifetime", lifetime_and_memory::lifetime),
+        ("Lifetime in Structure implementation", lifetime_and_memory::lifetime_in_struct),
+        ("Referenced counted variables", lifetime_and_memory::referenced_counted_variables),
+        ("Atomic Referenced counted variables", lifetime_and_memory::atomic_referenced_counted_variables),
+        ("Mutex Referenced counted variables", lifetime_and_memory::using_mutex_for_thread_safety)
+    ]);
+
 
     print_header("Applications", vec![
         //("Guessing a number", apps::number_guessing)
