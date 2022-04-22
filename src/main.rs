@@ -8,6 +8,7 @@ mod functions;
 mod traits;
 mod lifetime_and_memory;
 
+
 /** Global Variables **/
 
 static  APPLICATION_NAME: &str = "Learning Rust is Fun";
@@ -93,9 +94,19 @@ fn main() {
         ("Mutex Referenced counted variables", lifetime_and_memory::using_mutex_for_thread_safety)
     ]);
 
+
     print_header("Applications", vec![
         //("Guessing a number", apps::number_guessing),
         ("Circular References", apps::circular_references),
+        ("Modules", apps::play_with_modules),
         ("Spawning and Joining Threads", apps::spawning_and_joining_threads)
     ]);
 }
+
+#[test]
+fn main_test() {
+    assert_eq!("Learning Rust is Fun", APPLICATION_NAME);
+}
+
+
+

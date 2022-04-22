@@ -1,10 +1,12 @@
-use std::borrow::Borrow;
-use rand::{Rng, thread_rng};
+extern crate phrases;
+
+use rand::{Rng};
 use std::io::stdin;
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::{thread, time};
-
+use phrases::greetings::english;
+use phrases::greetings::french;
 
 #[allow(dead_code)]
 #[allow(unused_variables)]
@@ -107,6 +109,9 @@ pub fn circular_references() {
 }
 
 
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused)]
 pub fn spawning_and_joining_threads() {
     let handle = thread::spawn(|| {
         for _ in 1..10 {
@@ -139,4 +144,11 @@ pub fn spawning_and_joining_threads() {
     handle2.join();
     handle3.join();
     handle4.join();
+}
+
+pub fn play_with_modules() {
+    println!("{}", english::hello());
+    println!("{}", english::goodbye());
+    println!("{}", french::hello());
+    println!("{}", french::goodbye());
 }
