@@ -11,6 +11,8 @@ Learn a modern, powerful yet safe systems programming language!
 
 ★★★★☆ 4.30 (3180 ratings)
 
+![](./docs/certificate.jpeg)
+
 Learning Rust is Fun
 
 * Types and Variables
